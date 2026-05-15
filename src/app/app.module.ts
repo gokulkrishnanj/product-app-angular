@@ -17,6 +17,6 @@ import { SignupComponent } from './signup/signup.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [SignupComponent]
+  bootstrap: [LoginComponentComponent]
 })
 export class AppModule { }
