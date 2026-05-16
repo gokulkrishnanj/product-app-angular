@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./login-component.component.css']
 })
 export class LoginComponentComponent implements OnInit {
+
+  public message: string = '';
 
   constructor(private userService: UserService) { }
 
@@ -22,14 +25,22 @@ export class LoginComponentComponent implements OnInit {
       'password': password,
     }
     console.log("login called");
-    this.userService.logIn(userData).subscribe(
-      (response: any) => {
-        console.log(response);
+    this.userService.logIn(userData).subscribe({      next: (response: any) => {
+        this.message = response.message;
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
       },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+      error: (err: any) => {
+        this.message = err.error.message;
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
+      }});
+  }
+
+  public onReset(form: NgForm){
+    form.resetForm();
   }
 
 }

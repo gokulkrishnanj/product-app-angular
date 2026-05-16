@@ -13,6 +13,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public message: String = '';
+
   public onSignUp(email: String, password: String, role: String){
     console.log('role', role);
     const userData = {
@@ -21,14 +23,26 @@ export class SignupComponent implements OnInit {
       'role': role
     }
     console.log("signup called");
-    this.userService.signUp(userData).subscribe(
-      (response: any)=>{
-        console.log(response);
+    this.userService.signUp(userData).subscribe({
+      next: (response: any) => {
+        this.message = response.message;
+        console.log('my signup response', response);
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
       },
-      (error: any)=>{
-        console.log(error);
+      error: (err: any) => {
+        this.message = err.error.message;
+        setTimeout(() => {
+          this.message = '';
+        }, 3000);
       }
+    }
     )
+  }
+
+  public onReset(form: any){
+    form.resetForm();
   }
 
 }

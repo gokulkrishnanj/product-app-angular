@@ -7,9 +7,12 @@
 
 <body>
     <div class="main">
+        <div *ngIf="message" class="toastMessage">
+            {{ message }}
+        </div>
         <div class="login-form">
             <h1>Log in to your account</h1>
-            <form class="loginform" (ngSubmit)="onLogIn(username.value, password.value)">
+            <form class="loginform" #loginForm="ngForm" (ngSubmit)="onLogIn(username.value, password.value)" (ngReset)="onReset(loginForm)">
                 <label for="username">Username/MainId</label><br>
                 <input type="text" id="username" name="username" #username placeholder="Enter the user name"><br>
                 <label for="password">Password</label><br>
@@ -21,7 +24,7 @@
             </form>
             <div class="signup-option button">
                 <p>Don't have an account?</p>
-                <button type="button">Sign Up</button>
+                <button type="button" routerLink="/signup">Sign Up</button>
             </div>
         </div>
     </div>
