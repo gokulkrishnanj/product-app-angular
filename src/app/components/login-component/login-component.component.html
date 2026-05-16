@@ -9,16 +9,16 @@
     <div class="main">
         <div class="login-form">
             <h1>Log in to your account</h1>
-            <form class="loginform">
-                <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" placeholder="Enter the user name"><br>
+            <form class="loginform" (ngSubmit)="onLogIn(username.value, password.value)">
+                <label for="username">Username/MainId</label><br>
+                <input type="text" id="username" name="username" #username placeholder="Enter the user name"><br>
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" placeholder="Enter the password"><br>
+                <input type="password" id="password" name="password" #password placeholder="Enter the password"><br>
+                <div class="button">
+                    <button type="submit">Login</button>
+                    <button type="reset">Reset</button>
+                </div>
             </form>
-            <div class="button">
-                <button type="submit">Login</button>
-                <button type="reset">Reset</button>
-            </div>
             <div class="signup-option button">
                 <p>Don't have an account?</p>
                 <button type="button">Sign Up</button>

@@ -9,15 +9,20 @@
     <div class="main">
         <div class="signup-form">
             <h1>Register an User</h1>
-            <form class="signupform">
-                <label for="username">Username</label><br>
-                <input type="text" id="username" name="username" placeholder="Enter the user name"><br>
+            <form class="signupform" (submit)="onSignUp(username.value, password.value, roles.value)">
+                <label for="username">Username/MailId</label><br>
+                <input type="text" id="username" name="username" #username placeholder="Enter the user name"><br>
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" placeholder="Enter the password"><br>
+                <input type="password" id="password" name="password" #password placeholder="Enter the password"><br>
+                <label for="cars">Select role</label>
+                <select id="roles" #roles>
+                    <option value="ADMIN">Admin</option>
+                    <option value="USER">User</option>
+                </select>
+                <div class="button">
+                    <button type="submit">Sign Up</button>
+                </div>
             </form>
-            <div class="button">
-                <button type="submit">Sign Up</button>
-            </div>
         </div>
     </div>
 </body>
