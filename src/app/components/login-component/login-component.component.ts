@@ -25,7 +25,8 @@ export class LoginComponentComponent implements OnInit {
       'password': password,
     }
     console.log("login called");
-    this.userService.logIn(userData).subscribe({      next: (response: any) => {
+    this.userService.logIn(userData).subscribe({
+      next: (response: any) => {
         this.message = response.message;
         setTimeout(() => {
           this.message = '';

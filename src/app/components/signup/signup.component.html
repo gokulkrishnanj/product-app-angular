@@ -12,7 +12,7 @@
         </div>
         <div class="signup-form">
             <h1>Register an User</h1>
-            <form class="signupform" #signupform (submit)="onSignUp(username.value, password.value, roles.value)" (reset)= "onReset(signupform)">
+            <form class="signupform" #signupform="ngForm" (submit)="onSignUp(username.value, password.value, roles.value)" (reset)= "onReset(signupform)">
                 <label for="username">Username/MailId</label><br>
                 <input type="text" id="username" name="username" #username placeholder="Enter the user name"><br>
                 <label for="password">Password</label><br>

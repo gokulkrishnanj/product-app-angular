@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -41,7 +42,7 @@ export class SignupComponent implements OnInit {
     )
   }
 
-  public onReset(form: any){
+  public onReset(form: NgForm){
     form.resetForm();
   }
 

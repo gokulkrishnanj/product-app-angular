@@ -47,3 +47,15 @@ input {
     flex-direction: column;
     gap: 2px;
 }
+
+
+.toastMessage{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28ce12;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
