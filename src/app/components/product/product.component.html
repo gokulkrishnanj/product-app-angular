@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="header">
+        <div class="header-content">
+            <div class="product-image">
+                <img src="assets/product.jpg" alt="Products" />
+            </div>
+            <div class="cart-profile">
+                <img src="assets/cart.jpg" alt="cart" />
+                <img src="assets/profile.jpg" alt="profile" />
+            </div>
+        </div>
+    </div>
+    <div class="products">
+        <div class="product-list">
+            <h2 *ngIf="productNames && productNames.length > 0" class="product-heading">Products</h2>
+            <div *ngFor="let productName of productNames" class="productName">
+                {{ productName }}
+            </div>
+        </div>
+        <div class="all-product-details">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social-media-contents">
+            <a href="www.facebook.com" target="_blank"><img src="assets/fb.jpg" alt="facebook" /></a>
+            <a href="www.instagram.com" target="_blank"><img src="assets/inst.jpg" alt="instagram" /></a>
+            <a href="www.twitter.com" target="_blank"><img src="assets/x.jpg" alt=" twitter" /></a>
+            <a href="tel: +91 90902892321" target="_blank"><img src="assets/phone.jpg" alt="phone" /></a>
+        </div>
+    </div>
+</div>

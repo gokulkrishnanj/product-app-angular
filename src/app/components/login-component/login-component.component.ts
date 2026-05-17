@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class LoginComponentComponent implements OnInit {
 
   public message: string = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit(): void {
     console.log("Login component loaded");
@@ -31,6 +33,7 @@ export class LoginComponentComponent implements OnInit {
         setTimeout(() => {
           this.message = '';
         }, 3000);
+        this.router.navigate(['/products']);
       },
       error: (err: any) => {
         this.message = err.error.message;

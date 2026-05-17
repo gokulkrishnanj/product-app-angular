@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -9,7 +11,9 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +35,7 @@ export class SignupComponent implements OnInit {
         setTimeout(() => {
           this.message = '';
         }, 3000);
+        this.router.navigate(['/login']);
       },
       error: (err: any) => {
         this.message = err.error.message;
